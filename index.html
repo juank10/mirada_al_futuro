@@ -10,11 +10,14 @@
 </head>
 <body>
     <header>
-        <div class="banner">
-            <img src="banner.jpg" alt="Banner Mirada al Futuro">
-            <div class="banner-text">
-                <h1>Mirada al Futuro</h1>
-                <p>Un mundo de inclusión y esperanza</p>
+        <!-- Banner animado con texto animado -->
+        <div class="animated-banner">
+            <img src="banner1.jpg" alt="Banner 1" class="banner-img active">
+            <img src="banner2.jpg" alt="Banner 2" class="banner-img">
+            <img src="banner3.jpg" alt="Banner 3" class="banner-img">
+            <div class="banner-overlay">
+                <h1 class="animated-text">Mirada al Futuro</h1>
+                <p class="animated-text">¡Bienvenidos a una comunidad inclusiva!</p>
                 <a href="#contacto" class="cta-button">¡Contáctanos!</a>
             </div>
         </div>
@@ -34,7 +37,7 @@
             <img src="mision.jpg" alt="Misión" class="section-img">
             <div>
                 <h2>Misión</h2>
-                <p>Brindar apoyo integral a niños con discapacidad y sus familias, promoviendo su desarrollo y bienestar.</p>
+                <p>Brindar apoyo integral a niños con discapacidad y sus familias, promoviendo su desarrollo y bienestar integral.</p>
             </div>
         </section>
         <section id="vision" class="card">
@@ -66,13 +69,18 @@
                 </ul>
             </div>
         </section>
+        <!-- Carrusel de galería -->
         <section id="galeria">
             <h2>Galería</h2>
-            <div class="gallery">
-                <img src="foto1.jpg" alt="Actividad 1">
-                <img src="foto2.jpg" alt="Actividad 2">
-                <img src="foto3.jpg" alt="Actividad 3">
-                <!-- Puedes agregar más imágenes -->
+            <div class="gallery-slider">
+                <button class="slider-btn left">&lt;</button>
+                <div class="slider-container">
+                    <img src="foto1.jpg" alt="Foto 1" class="slide active">
+                    <img src="foto2.jpg" alt="Foto 2" class="slide">
+                    <img src="foto3.jpg" alt="Foto 3" class="slide">
+                    <!-- Agrega más imágenes aquí -->
+                </div>
+                <button class="slider-btn right">&gt;</button>
             </div>
         </section>
         <section id="contacto" class="card">
@@ -94,5 +102,47 @@
     <footer>
         <p>&copy; 2025 Mirada al Futuro. Todos los derechos reservados.</p>
     </footer>
+    <!-- Banner animado JS -->
+    <script>
+    // Banner automático
+    const banners = document.querySelectorAll('.banner-img');
+    let idx = 0;
+    setInterval(() => {
+        banners[idx].classList.remove('active');
+        idx = (idx + 1) % banners.length;
+        banners[idx].classList.add('active');
+    }, 4000);
+
+    // Animación texto banner
+    document.querySelectorAll('.animated-text').forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(-30px)';
+        setTimeout(() => {
+            el.style.transition = 'opacity 2s, transform 2s';
+            el.style.opacity = 1;
+            el.style.transform = 'translateY(0)';
+        }, 800);
+    });
+
+    // Carrusel slider galería
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+    document.querySelector('.slider-btn.left').onclick = () => {
+        current = (current - 1 + slides.length) % slides.length;
+        showSlide(current);
+    };
+    document.querySelector('.slider-btn.right').onclick = () => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    };
+    setInterval(() => {
+        current = (current + 1) % slides.length;
+        showSlide(current);
+    }, 5000);
+    </script>
 </body>
 </html>
