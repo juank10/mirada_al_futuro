@@ -5,61 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mirada al Futuro</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Mirada al Futuro</h1>
+        <div class="banner">
+            <img src="banner.jpg" alt="Banner Mirada al Futuro">
+            <div class="banner-text">
+                <h1>Mirada al Futuro</h1>
+                <p>Un mundo de inclusión y esperanza</p>
+                <a href="#contacto" class="cta-button">¡Contáctanos!</a>
+            </div>
+        </div>
         <nav>
             <ul>
-                <li><a href="#mision">Misión</a></li>
-                <li><a href="#vision">Visión</a></li>
-                <li><a href="#objetivos">Objetivos</a></li>
-                <li><a href="#servicios">Productos y Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#mision"><i class="fas fa-heart"></i> Misión</a></li>
+                <li><a href="#vision"><i class="fas fa-eye"></i> Visión</a></li>
+                <li><a href="#objetivos"><i class="fas fa-bullseye"></i> Objetivos</a></li>
+                <li><a href="#servicios"><i class="fas fa-hands-helping"></i> Servicios</a></li>
+                <li><a href="#galeria"><i class="fas fa-image"></i> Galería</a></li>
+                <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <section id="mision">
-            <h2>Misión</h2>
-            <p>Brindar apoyo integral a niños con discapacidad y sus familias, promoviendo su desarrollo y bienestar.</p>
+        <section id="mision" class="card">
+            <img src="mision.jpg" alt="Misión" class="section-img">
+            <div>
+                <h2>Misión</h2>
+                <p>Brindar apoyo integral a niños con discapacidad y sus familias, promoviendo su desarrollo y bienestar.</p>
+            </div>
         </section>
-        <section id="vision">
-            <h2>Visión</h2>
-            <p>Ser una organización líder en inclusión y atención especializada para niños con síndrome de Down en nuestra comunidad.</p>
+        <section id="vision" class="card">
+            <img src="vision.jpg" alt="Visión" class="section-img">
+            <div>
+                <h2>Visión</h2>
+                <p>Ser una organización líder en inclusión y atención especializada para niños con síndrome de Down en nuestra comunidad.</p>
+            </div>
         </section>
-        <section id="objetivos">
-            <h2>Objetivos</h2>
-            <ul>
-                <li>Ofrecer servicios educativos y terapéuticos de calidad.</li>
-                <li>Fomentar la inclusión social y escolar.</li>
-                <li>Capacitar a familias y profesionales.</li>
-            </ul>
+        <section id="objetivos" class="card">
+            <img src="objetivos.jpg" alt="Objetivos" class="section-img">
+            <div>
+                <h2>Objetivos</h2>
+                <ul>
+                    <li>Ofrecer servicios educativos y terapéuticos de calidad.</li>
+                    <li>Fomentar la inclusión social y escolar.</li>
+                    <li>Capacitar a familias y profesionales.</li>
+                </ul>
+            </div>
         </section>
-        <section id="servicios">
-            <h2>Productos y Servicios</h2>
-            <ul>
-                <li>Sesiones de terapia ocupacional y del lenguaje.</li>
-                <li>Programas educativos personalizados.</li>
-                <li>Asesoría a padres y cuidadores.</li>
-            </ul>
+        <section id="servicios" class="card">
+            <img src="servicios.jpg" alt="Servicios" class="section-img">
+            <div>
+                <h2>Productos y Servicios</h2>
+                <ul>
+                    <li>Sesiones de terapia ocupacional y del lenguaje.</li>
+                    <li>Programas educativos personalizados.</li>
+                    <li>Asesoría a padres y cuidadores.</li>
+                </ul>
+            </div>
         </section>
-        <section id="contacto">
-            <h2>Contáctanos</h2>
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
+        <section id="galeria">
+            <h2>Galería</h2>
+            <div class="gallery">
+                <img src="foto1.jpg" alt="Actividad 1">
+                <img src="foto2.jpg" alt="Actividad 2">
+                <img src="foto3.jpg" alt="Actividad 3">
+                <!-- Puedes agregar más imágenes -->
+            </div>
+        </section>
+        <section id="contacto" class="card">
+            <div>
+                <h2>Contáctanos</h2>
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <button type="submit" class="cta-button">Enviar</button>
+                </form>
+            </div>
+            <img src="contacto.jpg" alt="Contacto" class="section-img">
         </section>
     </main>
     <footer>
         <p>&copy; 2025 Mirada al Futuro. Todos los derechos reservados.</p>
     </footer>
 </body>
-
 </html>
