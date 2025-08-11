@@ -8,31 +8,36 @@ header {
     background: #2e7dbe;
     color: white;
 }
-.banner {
+.animated-banner {
     position: relative;
     width: 100%;
     height: 300px;
     overflow: hidden;
 }
-.banner img {
+.banner-img {
+    position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7);
+    opacity: 0;
+    transition: opacity 2s;
 }
-.banner-text {
+.banner-img.active {
+    opacity: 1;
+}
+.banner-overlay {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    color: white;
     text-align: center;
+    background: rgba(44, 80, 130, 0.6);
+    border-radius: 8px;
+    padding: 1rem 2rem;
 }
-.banner-text h1 {
-    font-size: 3rem;
-    margin: 0;
-}
-.banner-text p {
-    font-size: 1.5rem;
-    margin: 1rem 0;
+.animated-text {
+    opacity: 0;
+    transform: translateY(-30px);
 }
 .cta-button {
     background: #ff9800;
@@ -43,11 +48,14 @@ header {
     font-size: 1.1rem;
     cursor: pointer;
     box-shadow: 0 2px 8px #2222;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
     text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
 }
 .cta-button:hover {
     background: #f57c00;
+    transform: scale(1.05) rotate(-2deg);
 }
 nav ul {
     display: flex;
@@ -81,6 +89,11 @@ main {
     align-items: center;
     margin-bottom: 2rem;
     overflow: hidden;
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+.card:hover {
+    box-shadow: 0 0 20px #2e7dbe70;
+    transform: translateY(-8px) scale(1.03);
 }
 .card .section-img {
     width: 250px;
@@ -108,23 +121,46 @@ main {
 h2 {
     color: #2e7dbe;
 }
-.gallery {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+.gallery-slider {
+    position: relative;
+    width: 320px;
+    margin: auto;
     margin-bottom: 2rem;
 }
-.gallery img {
-    width: 200px;
-    height: 140px;
+.slider-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s;
     border-radius: 8px;
     box-shadow: 0 2px 6px #bbb;
-    transition: transform 0.4s;
 }
-.gallery img:hover {
-    transform: scale(1.05);
+.slide.active {
+    opacity: 1;
 }
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2e7dbe;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.3rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+}
+.slider-btn.left { left: 0; }
+.slider-btn.right { right: 0; }
 form {
     display: flex;
     flex-direction: column;
